@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,12 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.NavBar{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  background-color: rgb(117, 117, 117);
 }
