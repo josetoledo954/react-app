@@ -1,6 +1,11 @@
+import ItemCount from "./ItemCount"
+
 const ItemListContainer = () => {
   return (
-    <div>ItemListContainer</div>
+    <div>
+      ItemListContainer
+      <ItemCount stock = "5" />
+      </div>
   )
 }
 

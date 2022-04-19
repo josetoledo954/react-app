@@ -13,7 +13,6 @@ function App() {
       <h1>usando react</h1>
       <CardNew otroComponente={Saludo}> </CardNew>
       <Saludo nombre = "nombre" edad = "edad" />
-      <Contador stock = "5" />
       <ItemListContainer/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
