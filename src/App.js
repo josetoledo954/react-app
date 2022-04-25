@@ -5,6 +5,7 @@ import Saludo from './components/Saludo';
 import CardNew from './components/CardNew';
 import Contador from './components/Contador';
 import ItemListContainer from './components/ItemListContainer';
+import CountriesContainer from './components/CountriesContainer';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <h1>usando react</h1>
       <CardNew otroComponente={Saludo}> </CardNew>
       <Saludo nombre = "nombre" edad = "edad" />
-      <ItemListContainer/>
+      <ItemListContainer greeting="contenedor de items" />
+      <CountriesContainer/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

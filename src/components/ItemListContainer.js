@@ -1,11 +1,11 @@
 import ItemCount from "./ItemCount"
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
   return (
-    <div>
-      ItemListContainer
+    <div class="border-solid border-current border-2 bg-red">
+      <div>{props.greeting}</div> 
       <ItemCount stock = "5" />
-      </div>
+    </div>
   )
 }
 
