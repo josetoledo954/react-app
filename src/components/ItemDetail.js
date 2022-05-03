@@ -1,10 +1,10 @@
 import React from 'react'
-// import ItemCount from './ItemCount'
+import ItemCount from './ItemCount'
 
 const ItemDetail = ( {producto} ) => {
-//      const onAdd = (count) => {
-//     console.log(`agregaste ${count} productos al carrito `);
-//   }
+     const onAdd = (count) => {
+    console.log(`agregaste ${count} productos al carrito `);
+  }
 
   return (
     
@@ -14,7 +14,7 @@ const ItemDetail = ( {producto} ) => {
         <div> {producto.description} </div>
         <div> {producto.price} </div>
         
-        {/* <ItemCount stock = {5} initial = {1} onAdd = {onAdd} /> */}
+        <ItemCount stock = {5} initial = {1} onAdd = {onAdd} />
     </div>
     
   )

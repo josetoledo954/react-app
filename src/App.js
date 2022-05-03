@@ -11,6 +11,7 @@ import MoviesList from './components/movies/MoviesList';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MovieDetail from './components/movies/MovieDetail';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemCount from './components/shop/ItemCount';
 
 
 
@@ -20,6 +21,7 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path='/' element={<ItemListContainer/>} />
+        <Route path='/a' element={<ItemCount/>} />
         <Route path='/peliculas' element={<MoviesList/>} />
         <Route path='/contador' element={<Contador/>} />
         <Route path='/pelicula/:movieId' element={<MovieDetail/>} />

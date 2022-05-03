@@ -11,9 +11,9 @@ const ItemDetailContainer = () => {
   const [producto, setProductos] = useState ([])
 
 
-  const onAdd = (count) => {
-    console.log(`agregaste ${count} productos al carrito `);
-  }
+  // const onAdd = (count) => {
+  //   console.log(`agregaste ${count} productos al carrito `);
+  // }
   useEffect(() => {
 
       const promises = new Promise( (resolve, reject) => {
@@ -45,7 +45,7 @@ const ItemDetailContainer = () => {
           return (
       <div>
           <ItemDetail producto = {producto} />
-          <ItemCount stock = {5} initial = {1} onAdd = {onAdd} />
+          {/* <ItemCount stock = {5} initial = {1} onAdd = {onAdd} /> */}
       </div>
   
   )

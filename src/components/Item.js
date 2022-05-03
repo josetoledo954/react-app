@@ -8,6 +8,7 @@ const Item = ( {modelo} ) => {
         <div> {modelo.description} </div>
         <div> {modelo.price} </div>
         <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800"><Link to={`/item/${modelo.id}`}>ver detalles</Link></button>
+       
     </div>
   )
 }
