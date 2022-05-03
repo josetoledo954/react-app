@@ -1,5 +1,5 @@
 import React from 'react'
-import Contador from './Contador'
+import Contador from './clase/Contador'
 
 export const CartWidget = () => {
   return (

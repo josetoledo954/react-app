@@ -1,15 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
-import Saludo from './components/Saludo';
-import CardNew from './components/CardNew';
-import Contador from './components/Contador';
+import Saludo from './components/clase/Saludo';
+import CardNew from './components/clase/CardNew';
+import Contador from './components/clase/Contador';
 import ItemListContainer from './components/ItemListContainer';
-import CountriesContainer from './components/CountriesContainer';
+import CountriesContainer from './components/clase/CountriesContainer';
 import StarshipsContainer from './components/swapi/StarshipsContainer';
 import MoviesList from './components/movies/MoviesList';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MovieDetail from './components/movies/MovieDetail';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 
 
@@ -19,9 +20,10 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path='/' element={<ItemListContainer/>} />
+        <Route path='/peliculas' element={<MoviesList/>} />
         <Route path='/contador' element={<Contador/>} />
         <Route path='/pelicula/:movieId' element={<MovieDetail/>} />
-        <Route></Route>
+        <Route path='/item/:productoId' element={<ItemDetailContainer/>} />
       </Routes>
     </BrowserRouter>
 

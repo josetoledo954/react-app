@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import { moviesData } from "../../data/moviesData"
+import { productosData } from "../../data/productosData"
 
 const MovieDetail = () => {
 
@@ -12,7 +12,7 @@ const MovieDetail = () => {
 
 
     useEffect(() => {
-      setMovie(moviesData.find(m => m.id == movieId))
+      setMovie(productosData.find(m => m.id == movieId))
     }, [movieId])
     
 

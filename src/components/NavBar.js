@@ -8,7 +8,7 @@ const NavBar = () => {
       <h2 class="text-5xl">Tienda</h2>
       <li><Link to={`/`}>inicio</Link></li>
       <li><Link to={`/contador`}>producto</Link></li>
-      <li>preguntas</li>
+      <li><Link to={`/peliculas`}>preguntas</Link></li>
       <li>contacto</li>
       <CartWidget/>
     </div>
