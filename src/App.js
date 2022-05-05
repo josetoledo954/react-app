@@ -13,11 +13,13 @@ import MovieDetail from './components/movies/MovieDetail';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemCount from './components/shop/ItemCount';
 import MoviesContainer from './components/movies/MoviesContainer';
+import FavProvider from './context/favContext';
 
 
 
 function App() {
   return (
+    <FavProvider>
     <BrowserRouter>
       <NavBar></NavBar>
       <Routes>
@@ -30,6 +32,7 @@ function App() {
         <Route path='/item/:productoId' element={<ItemDetailContainer/>} />
       </Routes>
     </BrowserRouter>
+    </FavProvider>
 
     // <div className="App">
     //   <NavBar/>
