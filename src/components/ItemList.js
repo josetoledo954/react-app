@@ -27,6 +27,10 @@ const ItemList = () => {
 
     const {categoryId} = useParams()
 
+    useEffect(() => {
+        getItem()
+      }, [categoryId])
+
     const getItem = () => {
         const promises = new Promise( (resolve, reject) => {
 
@@ -54,41 +58,39 @@ const ItemList = () => {
 
     
 
-    useEffect(() => {
-      getItem()
-    }, [categoryId])
+    
     
     
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const promises = new Promise( (resolve, reject) => {
+    //     const promises = new Promise( (resolve, reject) => {
 
-            setTimeout( () => {
+    //         setTimeout( () => {
 
-                if (resolve) {
-                    resolve(productosData)
-                } else {
-                    reject("promesa rejected")
-                }
-            }, 2000)
+    //             if (resolve) {
+    //                 resolve(productosData)
+    //             } else {
+    //                 reject("promesa rejected")
+    //             }
+    //         }, 2000)
 
-        })
+    //     })
         
-        promises
-            .then( (result) => {
-                console.log("la promesa fue saisfecha",  result);
-                setItem(result)
-            })
-            .catch( (err) => {
-                console.log("la promesa fue rejected", err);
-            })
+    //     promises
+    //         .then( (result) => {
+    //             console.log("la promesa fue saisfecha",  result);
+    //             setItem(result)
+    //         })
+    //         .catch( (err) => {
+    //             console.log("la promesa fue rejected", err);
+    //         })
 
-            console.log("se completo la ejecucion del useEfect");
-    }, [])
+    //         console.log("se completo la ejecucion del useEfect");
+    // }, [])
 
     return (
-        <div class="border-solid border-current border-2" >
+        <div class="border-solid border-current border-2 flex" >
             {item.map ( (i) => <Item key = {i.id} modelo={i}/> )}
         </div>
     
