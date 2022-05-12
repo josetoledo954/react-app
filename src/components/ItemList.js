@@ -3,6 +3,8 @@ import Item from "./Item";
 import { productosData } from "../data/productosData";
 import { useParams } from "react-router-dom";
 import { getActiveElement } from "@testing-library/user-event/dist/utils";
+
+
 const ItemList = () => {
 
     

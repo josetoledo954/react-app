@@ -14,25 +14,35 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemCount from './components/shop/ItemCount';
 import MoviesContainer from './components/movies/MoviesContainer';
 import FavProvider from './context/favContext';
+import CartContextProvider from './context/CartContext';
+import AppContextProvider from './context/AppContext';
+import ProductDetail from './components/firebase-examples/ProductDetail';
+import Products from './components/firebase-examples/Products';
 
 
 
 function App() {
   return (
-    <FavProvider>
-    <BrowserRouter>
-      <NavBar></NavBar>
-      <Routes>
-        <Route path='/' element={<ItemListContainer/>} />
-        <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
-        <Route path='/a' element={<ItemCount/>} />
-        <Route path='/peliculas' element={<MoviesContainer/>} />
-        <Route path='/contador' element={<Contador/>} />
-        <Route path='/pelicula/:movieId' element={<MovieDetail/>} />
-        <Route path='/item/:productoId' element={<ItemDetailContainer/>} />
-      </Routes>
-    </BrowserRouter>
-    </FavProvider>
+    <AppContextProvider>
+      <CartContextProvider>
+        <FavProvider>
+          <BrowserRouter>
+            <NavBar></NavBar>
+            <Routes>
+              <Route path='/' element={<ItemListContainer/>} />
+              <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+              <Route path='/a' element={<ItemCount/>} />
+              <Route path='/peliculas' element={<MoviesContainer/>} />
+              <Route path='/contador' element={<Contador/>} />
+              <Route path='/pelicula/:movieId' element={<MovieDetail/>} />
+              <Route path='/item/:productoId' element={<ItemDetailContainer/>} />
+              <Route path='/producto' element={<ProductDetail/>} />
+              <Route path='/products' element={<Products/>} />
+            </Routes>
+          </BrowserRouter>
+        </FavProvider>
+      </CartContextProvider>
+    </AppContextProvider>
 
     // <div className="App">
     //   <NavBar/>

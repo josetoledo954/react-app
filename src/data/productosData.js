@@ -32,3 +32,11 @@ export const productosData = [
         pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_765874-MLA47146197629_082021-O.webp"
     }
 ]
+
+const task = new Promise((resp) => {
+    resp(productosData)
+},2000)
+
+export const getItem = () => {
+    return task
+}

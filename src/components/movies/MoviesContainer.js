@@ -7,8 +7,15 @@ import MoviesList from './MoviesList'
 const MoviesContainer = () => {
 
 
+    
     const [darkMode, setDarkMode] = useState(false)
     const [loader, setLoader] = useState(true)
+
+    
+    const styles = {
+        dark: `class1 class2 class3`,
+        ligth: `calass 4 class5 class6`
+    }
 
     const darkModeHandler = () => {
         setDarkMode(true)
@@ -27,7 +34,7 @@ useEffect(() => {
 
   return (
       <DarkModeContext.Provider value={darkMode}>
-          <h1>app de peliculas  </h1>
+          <h1 className={ darkMode ? styles.dark : styles.ligth  }>app de peliculas  </h1>
           <button onClick={darkModeHandler} className="border-solid border-current border-2">dark mode on</button>
          
         { loader ? <Spinner/> : <MoviesList/> }
