@@ -21,7 +21,7 @@ const {title, pictureUrl, description, price, id} = producto
         <div> {description} </div>
         <div> {price} </div>
         {finalizar ? (
-          <Link to={`/cart`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Finalizar Compra</Link>
+          <Link to={`/carrito`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Finalizar Compra</Link>
         ) : (
           <ItemCount stock = {5} initial = {1} onAdd = {onAdd} id={id} />
         )

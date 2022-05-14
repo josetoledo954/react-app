@@ -18,7 +18,9 @@ const MoviesContainer = () => {
     }
 
     const darkModeHandler = () => {
-        setDarkMode(true)
+        setDarkMode( previusValue => {
+          return !previusValue
+        } )
     }
 
 useEffect(() => {
@@ -35,7 +37,7 @@ useEffect(() => {
   return (
       <DarkModeContext.Provider value={darkMode}>
           <h1 className={ darkMode ? styles.dark : styles.ligth  }>app de peliculas  </h1>
-          <button onClick={darkModeHandler} className="border-solid border-current border-2">dark mode on</button>
+          <button onClick={darkModeHandler} className="border-solid border-current border-2">dark mode {darkMode ? `off` : `on`} </button>
          
         { loader ? <Spinner/> : <MoviesList/> }
 

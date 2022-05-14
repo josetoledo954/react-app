@@ -10,6 +10,7 @@ const {clearFavorites} = useContext(FavContext)
 
 const clearHandler = () => {clearFavorites()}
 
+
   return (
       <>
         <div>Footer</div>

@@ -18,6 +18,7 @@ import CartContextProvider from './context/CartContext';
 import AppContextProvider from './context/AppContext';
 import ProductDetail from './components/firebase-examples/ProductDetail';
 import Products from './components/firebase-examples/Products';
+import Cart from './components/Cart';
 
 
 
@@ -38,6 +39,7 @@ function App() {
               <Route path='/item/:productoId' element={<ItemDetailContainer/>} />
               <Route path='/producto' element={<ProductDetail/>} />
               <Route path='/products' element={<Products/>} />
+              <Route path='/carrito' element={<Cart/>} />
             </Routes>
           </BrowserRouter>
         </FavProvider>
