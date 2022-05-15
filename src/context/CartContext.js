@@ -28,15 +28,15 @@ const CartContextProvider = ({children}) => {
 
     }
 
-    const deleteFromCart = (producto) => {
+    const deleteFromCart = (id) => {
         const newCart = [...cart]
 
-        const productoEnCart = isInCart(producto.id)
+        const productoEnCart = isInCart(id)
 
         if(!productoEnCart){
             return
         }
-        const deleteProduct = newCart.filter((prod) => prod.id == producto.id)
+        const deleteProduct = newCart.filter((prod) => prod.id !== id)
 
         setCart(deleteProduct)
     }
