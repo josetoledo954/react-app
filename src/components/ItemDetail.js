@@ -23,9 +23,9 @@ const {title, pictureUrl, description, price, id} = producto
         <img src= {pictureUrl} alt = "imegen" ></img>
         <div> {description} </div>
         <div> {price} </div>
-        {finalizar ? ( <div>
-          <Link to={`/carrito`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Finalizar Compra</Link>
-           <Link to={`/`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Seguir Comprando</Link>
+        {finalizar ? ( <div className='flex w-100'>
+          <Link to={`/carrito`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-5">Finalizar Compra</Link>
+           <Link to={`/`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 m-5	">Seguir Comprando</Link>
            </div>)
          : (
           <ItemCount stock = {5} initial = {1} onAdd = {onAdd} id={id} />
