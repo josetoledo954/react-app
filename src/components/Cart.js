@@ -2,12 +2,20 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useCartContext } from '../context/CartContext'
 
 const Cart = () => {
+  const [carritoVacio, setCarritoVacio] = useState()
 
     const {cart} = useCartContext()
     const {deleteFromCart} = useCartContext()
     const {deleteCart} = useCartContext()
 
-    const deleteItem = (id) => {deleteFromCart(id)
+
+
+
+    const deleteItem = (id) => {
+      if(cart.length==1){
+        setCarritoVacio(true)
+      }
+      deleteFromCart(id)
     }
     
     const borrarCarrrito = () => {
@@ -15,14 +23,24 @@ const Cart = () => {
       deleteCart()
     }
 
-useEffect(() => {
-  if(cart.length==0){
-    setCarritoVacio(true)
-  }
+
+    useEffect(() => {
+      if(cart.length==0){
+      setCarritoVacio(true)
+    }
+
+  
 }, [])
 
 
-  const [carritoVacio, setCarritoVacio] = useState()
+
+// useEffect(() => {
+//   if(cart.length==0){
+//     setCarritoVacio(true)
+//   }
+// }, [])
+
+
 
   return (
     <div>{cart.map(p => 
