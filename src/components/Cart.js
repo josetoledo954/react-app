@@ -24,30 +24,29 @@ const Cart = () => {
   }
 
   const sumarCarrito = (id, cantidad) => {
-    const findStock = cart.map(p => {
-      if(p.quantity < p.stock){
+      const find = cart.find((p) => p.id == id)
+      if(find.quantity < find.stock){
         const findProduct = products.find((producto) => producto.id == id)
         if(!findProduct){
             return
         }
         addToCart(findProduct, cantidad)
+        console.log("akfkdfjadfjadf", find.stock);
       }
-    })
     }
   
   
     const restarCarrito = (id, cantidad) => {
-    const findStock = cart.map(p => {
-      if(p.quantity >= 2){
+      const find = cart.find((p) => p.id == id)
+      if(find.quantity >= 2){
         const findProduct = products.find((producto) => producto.id == id)
         if(!findProduct){
             return
         }
         addToCart(findProduct, cantidad)
-      }else if(p.quantity == 1){
-        deleteItem(p.id)
+      }else if(find.quantity == 1){
+        deleteItem(find.id)
       }
-    })
     }
   
   
@@ -67,17 +66,19 @@ const Cart = () => {
 
   return (
     <div>{cart.map(p => 
-      <li>
-        id {p.id} 
+      <li className='flex-1 border-b-[2px]'>
+        <img src={p.pictureUrl} className="w-10 inline m-20" />
         nombre {p.title} 
-        <button className='border-solid border-current border-2 m-5 p-2' onClick={() => restarCarrito(p.id, -1)}>-</button>
+        <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10" onClick={() => restarCarrito(p.id, -1)}>-</button>
         cantidad {p.quantity}
-        <button className='border-solid border-current border-2 m-5 p-2' onClick={() => sumarCarrito(p.id, 1)}>+</button>
-        <button className='border-solid border-current border-2' onClick={() => deleteItem(p.id)}>eliminar item</button>
+        <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10" onClick={() => sumarCarrito(p.id, 1)}>+</button>
+        <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10" onClick={() => deleteItem(p.id)}>eliminar item</button>
       </li>)}
       {carritoVacio ? (<div className='flex flex-col justify-center	 items-center	'>
         <div> el carrito esta vacio</div>
-        <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">Ir a comprar</Link></div> ) : (<button onClick={borrarCarrrito}>borrar carrito</button>)}
+        <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">Ir a comprar</Link></div> ) : 
+        (<div><button onClick={borrarCarrrito} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">borrar carrito</button>
+        <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">agregar productos</Link></div>)}
         
     </div>
   )
