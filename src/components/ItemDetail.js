@@ -4,7 +4,7 @@ import ItemCount from './ItemCount'
 
 const ItemDetail = ( {producto} ) => {
 
-const {title, pictureUrl, description, price, id} = producto
+const {title, pictureUrl, description, price, stock, id} = producto
 
   const [finalizar, setFinalizar] = useState(false)
 
@@ -28,7 +28,7 @@ const {title, pictureUrl, description, price, id} = producto
            <Link to={`/`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 m-5	">Seguir Comprando</Link>
            </div>)
          : (
-          <ItemCount stock = {5} initial = {1} onAdd = {onAdd} id={id} />
+          <ItemCount stock = {stock} initial = {1} onAdd = {onAdd} id={id} />
         )
         }
 
