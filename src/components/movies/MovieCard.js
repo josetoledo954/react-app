@@ -1,17 +1,19 @@
-import { useContext } from "react"
 import { Link } from "react-router-dom"
-import {DarkModeContext}  from "../../context/darkModeContext"
-import { FavContext } from "../../context/favContext"
+import { useDarkMode}  from "../../context/darkModeContext"
+import { useFavContext } from "../../context/favContext"
 
 const MovieCard = ( props ) => {
 
     const {id, title, director, year, duration} = props.movie
 
 
-  const darkMode = useContext(DarkModeContext)
-  const {addToFavorites} = useContext(FavContext)
+  const darkMode = useDarkMode()
+  const {addToFavorites} = useFavContext()
 
-  const addHandler = () => {addToFavorites(id)}
+
+  const addHandler = () => {
+    addToFavorites({id, title})
+  }
    
   console.log(darkMode);
 

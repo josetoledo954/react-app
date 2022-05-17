@@ -5,7 +5,7 @@ import { useCartContext } from '../context/CartContext'
 
 const Cart = () => {
   const [carritoVacio, setCarritoVacio] = useState()
-
+  const [precioProductos, setPrecioProductos] = useState()
   // const [cartMod, setCartMod] = useCartMod(cart)
 
     const {cart} = useCartContext()
@@ -61,14 +61,19 @@ const Cart = () => {
       }else{
         setCarritoVacio(false)
       }
+      setPrecioProductos(cart.map(item => item.price * item.quantity).reduce((prev, curr) => prev + curr, 0))
   }, [cart])
-  
 
+  
+  
+  
   return (
+    <>
     <div>{cart.map(p => 
       <li className='flex-1 border-b-[2px]'>
         <img src={p.pictureUrl} className="w-10 inline m-20" />
         nombre {p.title} 
+        precio {p.price*p.quantity} 
         <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10" onClick={() => restarCarrito(p.id, -1)}>-</button>
         cantidad {p.quantity}
         <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10" onClick={() => sumarCarrito(p.id, 1)}>+</button>
@@ -77,10 +82,14 @@ const Cart = () => {
       {carritoVacio ? (<div className='flex flex-col justify-center	 items-center	'>
         <div> el carrito esta vacio</div>
         <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">Ir a comprar</Link></div> ) : 
-        (<div><button onClick={borrarCarrrito} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">borrar carrito</button>
+        (<div>total {precioProductos}<button onClick={borrarCarrrito} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">borrar carrito</button>
         <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">agregar productos</Link></div>)}
-        
+              
     </div>
+    {/* <div>
+      total { carritoVacio ? precioProductos : ""}
+    </div> */}
+        </>
   )
 }
 

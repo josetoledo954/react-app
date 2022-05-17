@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import { useFavContext } from '../../context/favContext'
+import FavoritesList from "../movies/FavoritesList";
+
 
 const Contador = ({ stock }) => {
     console.log("aqui hay un render del contador");
     const [count, setCount] = useState(1)
 
+    const {favorites} = useFavContext()
     useEffect( () => {
         console.log("se monto el componente");
         return () => {
@@ -40,6 +44,9 @@ const Contador = ({ stock }) => {
                 <button onClick={addHandler} class = " hover:font-bold text-2xl text-blue-500" > + </button>
             </div>
             <button class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Agregar al carrito</button>
+            <div>
+                <FavoritesList/>
+            </div>
         </div>
     </>
   )
