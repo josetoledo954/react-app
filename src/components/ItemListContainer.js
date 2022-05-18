@@ -1,3 +1,4 @@
+import Products from "./firebase-examples/Products"
 import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 
@@ -10,7 +11,8 @@ const ItemListContainer = (props) => {
     <div class="border-solid border-current border-2 bg-red">
       <div>{props.greeting}</div> 
       {/* <ItemCount stock = {5} initial = {1} onAdd = {onAdd} /> */}
-      <ItemList/>
+      {/* <ItemList/> */}
+      <Products/>
     </div>
   )
 }
