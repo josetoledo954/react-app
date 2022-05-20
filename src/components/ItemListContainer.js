@@ -1,4 +1,5 @@
 import Products from "./firebase-examples/Products"
+import ItemCollection from "./ItemCollection"
 import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 
@@ -12,7 +13,8 @@ const ItemListContainer = (props) => {
       <div>{props.greeting}</div> 
       {/* <ItemCount stock = {5} initial = {1} onAdd = {onAdd} /> */}
       {/* <ItemList/> */}
-      <Products/>
+      {/* <Products/> */}
+      <ItemCollection/>
     </div>
   )
 }
