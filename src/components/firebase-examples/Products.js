@@ -27,30 +27,29 @@ useEffect(() => {
 
 const getItem = () => {
   // const promises = new Promise( (resolve, reject) => {
-  //         if (resolve) {
-  //             resolve(products)
-  //         } else {
-  //             reject("promesa rejected")
-  //         }
-  // })
-  
-  // promises.then( (result) => {
-  //         (categoryId !== undefined)? setProducts(products.filter(data => data.categoryId === categoryId)) : setProducts(result)
+    //         if (resolve) {
+      //             resolve(products)
+      //         } else {
+        //             reject("promesa rejected")
+        //         }
+        // })
+        
+        // promises.then( (result) => {
+          //         (categoryId !== undefined)? setProducts(products.filter(data => data.categoryId === categoryId)) : setProducts(result)
   //     })
   //     .catch( (err) => {
-  //         console.log("la promesa fue rejected", err);
-  //     })
-
-  //     console.log("se completo la ejecucion del useEfect");
-  const db = getFirestore()
-  
-  const itemCollection = collection(db, "items")
+    //         console.log("la promesa fue rejected", err);
+    //     })
+    
+    //     console.log("se completo la ejecucion del useEfect");
+    const db = getFirestore()
+    
+    const itemCollection = collection(db, "items")
   getDocs(itemCollection).then((snapshot) => {
-    if(snapshot.size == 0){
-     console.log("no products");
-   }
-   categoryId !== undefined ? setProducts(products.filter(data => data.categoryId === categoryId)) : 
-   setProducts(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+    const collection = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
+    categoryId !== undefined ? setProducts(collection.filter(p => p.categoryId === categoryId)) : 
+    setProducts(collection)
+    //  setProducts(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
   })
   
 }

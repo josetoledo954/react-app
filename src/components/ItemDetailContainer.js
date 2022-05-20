@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import {productosData} from "../data/productosData"
 import ItemDetail from './ItemDetail'
 import ItemCount from './ItemCount'
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
 
 
 const ItemDetailContainer = () => {
@@ -15,31 +16,39 @@ const ItemDetailContainer = () => {
   //   console.log(`agregaste ${count} productos al carrito `);
   // }
   useEffect(() => {
+    const db = getFirestore()
+    
+    const itemCollection = collection(db, "items")
+  getDocs(itemCollection).then((snapshot) => {
+    const collection = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
+  //  setProducts(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+   setProductos(collection.find(i => i.id === productoId))  
+  
+  })
+      // const promises = new Promise( (resolve, reject) => {
 
-      const promises = new Promise( (resolve, reject) => {
+      //     setTimeout( () => {
 
-          setTimeout( () => {
-
-              if (resolve) {
-                  resolve(productosData)
-                } else {
-                  reject("promesa rejected")
-                }
-              }, 2000)
+      //         if (resolve) {
+      //             resolve(productosData)
+      //           } else {
+      //             reject("promesa rejected")
+      //           }
+      //         }, 2000)
               
-            })
+      //       })
             
-            promises
-            .then( (result) => {
-              console.log("la promesa fue saisfecha",  result);
-              setProductos(result)
-              setProductos(productosData.find(i => i.id == productoId))
-            })
-            .catch( (err) => {
-              console.log("la promesa fue rejected", err);
-            })
+      //       promises
+      //       .then( (result) => {
+      //         console.log("la promesa fue saisfecha",  result);
+      //         setProductos(result)
+      //         setProductos(productosData.find(i => i.id == productoId))
+      //       })
+      //       .catch( (err) => {
+      //         console.log("la promesa fue rejected", err);
+      //       })
             
-            console.log("se completo la ejecucion del useEfect");
+      //       console.log("se completo la ejecucion del useEfect");
           }, [productoId])
         
           return (
