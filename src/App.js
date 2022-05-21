@@ -20,6 +20,7 @@ import ProductDetail from './components/firebase-examples/ProductDetail';
 import Products from './components/firebase-examples/Products';
 import Cart from './components/Cart';
 import SaveFavs from './components/movies/SaveFavs';
+import Compra from './components/Compra';
 
 
 
@@ -42,6 +43,7 @@ function App() {
               <Route path='/products' element={<Products/>} />
               <Route path='/carrito' element={<Cart/>} />
               <Route path='/favoritos' element={<SaveFavs/>} />
+              <Route path='/compra' element={<Compra/>} />
             </Routes>
           </BrowserRouter>
         </FavProvider>

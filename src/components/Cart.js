@@ -83,7 +83,8 @@ const Cart = () => {
         <div> el carrito esta vacio</div>
         <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">Ir a comprar</Link></div> ) : 
         (<div>total {precioProductos}<button onClick={borrarCarrrito} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">borrar carrito</button>
-        <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">agregar productos</Link></div>)}
+        <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">agregar productos</Link>
+        <Link to={`/compra`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">comprar</Link></div>)}
               
     </div>
     {/* <div>

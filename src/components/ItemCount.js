@@ -6,9 +6,10 @@ import { useCartContext } from "../context/CartContext";
 const ItemCount = ({ stock, initial, onAdd, id }) => {
     console.log("aqui hay un render del contador");
     const [count, setCount] = useState(initial)
-
-    const {addToCart} = useCartContext()
+    const [stockNuevo, setStockNuevo] = useState()
+    const {addToCart, cart} = useCartContext()
     const {products} = useAppContext()
+
 
     useEffect( () => {
         console.log("se monto el componente");
@@ -21,11 +22,23 @@ const ItemCount = ({ stock, initial, onAdd, id }) => {
         console.log("se modifico el estado del componente");
     }, [count])
     
-    const addHandler = () => { 
-        console.log("se esta sumando");
-        if (count < stock) {
-            setCount(count + 1)
-        }
+    const addHandler = (id, count) => { 
+        const findProductCart = cart.find((producto) => producto.id == id)
+        console.log(findProductCart);
+
+        if(findProductCart){
+            const findProductCart = cart.find((producto) => producto.id == id)
+            const stockN = findProductCart.stock - findProductCart.quantity
+            setStockNuevo(stockN)
+            console.log("nuevo stockkkkkk", stockNuevo);
+            console.log("se esta sumando");
+            if (count < stockN) {
+                setCount(count + 1)
+            }
+        }else if (count < stock) {
+                setCount(count + 1)
+            }
+        
     }
     
     const resHandler = () => { 
@@ -50,9 +63,18 @@ const ItemCount = ({ stock, initial, onAdd, id }) => {
         }
         
         addToCart(findProduct, cantidad)
-        onAdd(count)
+        onAdd(count, id)
         console.log("completo");
+        
     }
+
+    // const onAdd = (count, id) => {
+    //     setFinalizar(true)
+    //     console.log(`agregaste ${count} productos al carrito `);
+    //     stock=(stockN)
+    //     console.log("sotock nuevo", stockN);
+    //     setStockNuevo(stockN)   
+    // }
     
   return (
     <>
@@ -61,7 +83,7 @@ const ItemCount = ({ stock, initial, onAdd, id }) => {
             <div class="text-2xl ring-2 text-center  h-10 bg-white rounded-md p-1">
                 <button onClick={resHandler} class = "hover:font-bold text-2xl text-blue-500" > - </button>
                 <strong class="text-2xl m-10"> {count} </strong>
-                <button onClick={addHandler} class = "hover:font-bold text-2xl text-blue-500" > + </button>
+                <button onClick={() => addHandler(id, count)} class = "hover:font-bold text-2xl text-blue-500" > + </button>
             </div>
             {/* <button onClick={agregar} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Agregar al carrito</button> */}
             <button onClick={() => handleClick(id, count)} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Agregar al carrito</button>
