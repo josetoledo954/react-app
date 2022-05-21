@@ -6,7 +6,6 @@ import { useCartContext } from "../context/CartContext";
 const ItemCount = ({ stock, initial, onAdd, id }) => {
     console.log("aqui hay un render del contador");
     const [count, setCount] = useState(initial)
-    const [stockNuevo, setStockNuevo] = useState()
     const {addToCart, cart} = useCartContext()
     const {products} = useAppContext()
 
@@ -29,8 +28,6 @@ const ItemCount = ({ stock, initial, onAdd, id }) => {
         if(findProductCart){
             const findProductCart = cart.find((producto) => producto.id == id)
             const stockN = findProductCart.stock - findProductCart.quantity
-            setStockNuevo(stockN)
-            console.log("nuevo stockkkkkk", stockNuevo);
             console.log("se esta sumando");
             if (count < stockN) {
                 setCount(count + 1)
