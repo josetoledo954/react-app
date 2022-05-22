@@ -24,8 +24,8 @@ const ItemListContainer = (props) => {
   // const onAdd = (count) => {
   //   console.log(`agregaste ${count} productos al carrito `);
   // }
-  return (load ? <Spinner/>  :
-    (<div class="border-solid border-current border-2 bg-red">
+  return (load ? <div className="flex items-center h-full justify-center bg-red-500"><Spinner/></div>   :
+    (<div class="border-solid border-current border-2 ">
       <div>{props.greeting}</div> 
       {/* <ItemCount stock = {5} initial = {1} onAdd = {onAdd} /> */}
       {/* <ItemList/> */}

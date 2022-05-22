@@ -15,21 +15,24 @@ const {title, pictureUrl, description, price, stock,categoryId, id} = producto
        setFinalizar(true)
     console.log(`agregaste ${count} productos al carrito `);
   }
-
+const desc = description.split('. ')
   return (
     
-    <div class = "border-solid border-current border-2 items-center justify-evenly flex px-52">
-        <div> {title} 
+    <div class = "border-solid border-current border-2 items-start justify-evenly flex mx-56">
         <img src= {pictureUrl} alt = "imegen" ></img>
-        <div>precio {price} </div>
+        <div className='flex flex-col mt-5	'> 
+          <div className='text-2xl mb-5'>{title}</div>  
+          <div className='text-5xl mb-10'>precio {price} </div>
+          <div > {desc.map(p => <li> {p} </li> )}</div>
         </div>
-        <div> {description} </div>
-        {finalizar ? ( <div className='flex w-100'>
+        {finalizar ? ( <div className='flex flex-col w-100 mt-56'>
           <Link to={`/carrito`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-5">Finalizar Compra</Link>
            <Link to={`/`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 m-5	">Seguir Comprando</Link>
            </div>)
          : (
+           <div className='mt-56'>
           <ItemCount stock = {stock} initial = {1} onAdd = {onAdd} categoryId = {categoryId} id={id} />
+             </div>
         )
         }
 

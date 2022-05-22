@@ -69,27 +69,37 @@ const Cart = () => {
   
   return (
     <>
-    <div className='flex flex-col items-center justify-center'>{cart.map(p => 
-      <li className='flex-1 border-b-[2px]'>
-        <img src={p.pictureUrl} className="w-10 inline m-5" />
-        nombre {p.title} 
-        precio {p.price*p.quantity} 
-        <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10 h-10 w-10" onClick={() => restarCarrito(p.id, -1)}>-</button>
-        cantidad {p.quantity}
-        <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10 h-10 w-10" onClick={() => sumarCarrito(p.id, 1)}>+</button>
-        <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10" onClick={() => deleteItem(p.id)}>eliminar item</button>
-      </li>)}
-      {carritoVacio ? (<div className='flex flex-col justify-center	 items-center	'>
-        <div > el carrito esta vacio</div>
+      {carritoVacio ? (<div className='flex flex-col justify-center	 items-center	border-solid border-current- border-2 px-20 m-80 mt-10 h-80'>
+        <div className='text-3xl '> el carrito esta vacio</div>
         <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">Ir a comprar</Link></div> ) : 
-        (<div>
-        <div className='text-2xl'> total {precioProductos}</div> 
-        <button onClick={borrarCarrrito} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">borrar carrito</button>
-        <Link to={`/`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">agregar productos</Link>
-        <Link to={`/compra`} className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">comprar</Link>
-        </div>)}
+        (
+    <div className='flex flex-col items-center justify-center border-solid border-current- border-2 px-20 m-80 mt-10 bg-white'>{cart.map(p => 
+      <li className='flex items-center justify-between border-b-[2px] w-full '>
+        <img src={p.pictureUrl} className="w-10 inline m-5" />
+        <div className='text-xl w-56'> {p.title} </div>
+      
+        <div className='flex flex-col items-center '>
+          <div className='border-[2px] w-32 mx-10 flex items-center justify-between'>
+            <button className="text-2xl rounded-md text-center text-blue-800  p-1 hover:bg-blue-200	 h-10 w-10" onClick={() => restarCarrito(p.id, -1)}>-</button>
+            {p.quantity}
+            <button className="text-2xl rounded-md text-center text-blue-800  p-1 hover:bg-blue-200	 h-10 w-10" onClick={() => sumarCarrito(p.id, 1)}>+</button>
+          </div>
+          <div className='absolute mt-12 text-slate-500	'>disponibles {p.stock - p.quantity} </div>
+        </div>
+
+        <button className="text-l rounded-md text-center text-blue-500 " onClick={() => deleteItem(p.id)}>eliminar item</button>
+        <div className='text-2xl w-56 text-right'>{p.price*p.quantity} </div>
+      </li>)}
+        <div className='border-b-[2px] w-full h-32 text-3xl text-right '> total {precioProductos}</div> 
+      <div className='flex items-center justify-between w-full'>
+
+        <button onClick={borrarCarrrito} className="text-l rounded-md text-center text-blue-500 	m-10">borrar carrito</button>
+        <Link to={`/`} className="text-l rounded-md text-center text-blue-500 	m-10">agregar productos</Link>
+        <Link to={`/compra`} className="text-xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 h-16 w-32	p-5">comprar</Link>
               
+      </div>
     </div>
+        )}
     {/* <div>
       total { carritoVacio ? precioProductos : ""}
     </div> */}
