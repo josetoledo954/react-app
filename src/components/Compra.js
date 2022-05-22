@@ -2,6 +2,7 @@ import { addDoc, collection, doc, getFirestore, updateDoc } from 'firebase/fires
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext'
+import Check from './Check'
 
 
 
@@ -14,6 +15,7 @@ const Compra = () => {
 
 const [form, setForm] = useState({})
 const [compra, setCompra] = useState(false)
+const [complet, setComplet] = useState(false)
 const [id, setId] = useState()
 
 
@@ -55,26 +57,29 @@ const saveFavs  = async(e) => {
   console.log(response);
   console.log(response.id);
   setId(response.id)
+    if(response){
 
-  cart.forEach(e => {
-    const updateFavs = async () => {
-      const stockNuevo = e.stock - e.quantity    
-      const idDoc = e.id
-      
-      const db = getFirestore()
-      const cart = doc(db, 'items', idDoc )
-      try {
-        await updateDoc(cart, {stock: stockNuevo})
-      } catch (error) {
-        console.log('verificar');
-      }
-      const response = await updateDoc(cart, {stock: stockNuevo})
-      console.log(response);
+      cart.forEach(e => {
+        const updateFavs = async () => {
+          const stockNuevo = e.stock - e.quantity    
+          const idDoc = e.id
+          
+          const db = getFirestore()
+          const cart = doc(db, 'items', idDoc )
+          try {
+            await updateDoc(cart, {stock: stockNuevo})
+          } catch (error) {
+            console.log('verificar');
+          }
+          const response = await updateDoc(cart, {stock: stockNuevo})
+          console.log(response);
+        }
+        updateFavs()
+        deleteCart()
+        setComplet(true)
+      });
     }
-    updateFavs()
-    setCompra(true)
-    deleteCart()
-  });
+  setCompra(true)
 }
 
 // const update = (e) => {
@@ -99,12 +104,7 @@ const saveFavs  = async(e) => {
 // } 
 
   return (
-    compra ? <div className='flex flex-col items-center justify-center'>
-
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-52 w-52 text-lime-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-      <div className='text-2xl'>su compra a sido realizada se registro con el numero {id}  </div> 
-      <Link to='/ ' className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-10">bien</Link>
-      </div> :
+    compra ? <Check complet = {complet} id = {id} /> :
     <>
     
     <div className='flex items-center justify-center'>
@@ -147,13 +147,12 @@ const saveFavs  = async(e) => {
             />
             </label>
             <div className='block text-gray-700 text-sm font-bold mb-2'>detalle de la compra</div>
-            <div className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'> {cart.map(p =><div> {p.quantity} {p.title} {p.price*p.quantity} </div>)} </div>
-            <div className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'> total a pagar {cart.map(p => p.price * p.quantity).reduce((prev, curr) => prev + curr, 0)} </div>
-            <button type="submit" onClick={form.nombre && form.telefono && form.mail  ? saveFavs : "" }  className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 mt-10	w-full">comprar</button>
-            <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 mt-10	w-full mt-5">
-              <Link to={`/carrito `}>
-              ver carrito
-              </Link>
+            <div className='shadow appearance-none border rounded w-full px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'> {cart.map(p =><div className='border-b-[2px] m-5 text-right'> 
+              {p.quantity} {p.title} {p.price*p.quantity} </div>)} </div>
+            <div className='shadow appearance-none border rounded w-full  px-3 text-right mt-2 p-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'> total a pagar {cart.map(p => p.price * p.quantity).reduce((prev, curr) => prev + curr, 0)} </div>
+            <button type="submit" onClick={form.nombre && form.telefono && form.mail  ? saveFavs : "" }  className="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800 mt-2	w-full">comprar</button>
+            <button className="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800 mt-10	w-full mt-2">
+              <Link to={`/carrito `}>ver carrito</Link>
               </button>
         </form>
             </div>

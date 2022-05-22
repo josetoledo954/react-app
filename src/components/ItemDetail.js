@@ -22,12 +22,12 @@ const desc = description.split('. ')
         <img src= {pictureUrl} alt = "imegen" ></img>
         <div className='flex flex-col mt-5	'> 
           <div className='text-2xl mb-5'>{title}</div>  
-          <div className='text-5xl mb-10'>precio {price} </div>
+          <div className='text-5xl mb-10'> {price} </div>
           <div > {desc.map(p => <li> {p} </li> )}</div>
         </div>
         {finalizar ? ( <div className='flex flex-col w-100 mt-56'>
-          <Link to={`/carrito`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	m-5">Finalizar Compra</Link>
-           <Link to={`/`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 m-5	">Seguir Comprando</Link>
+          <Link to={`/carrito`} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800 m-5">Finalizar Compra</Link>
+           <Link to={`/`} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800 m-5	">Seguir Comprando</Link>
            </div>)
          : (
            <div className='mt-56'>

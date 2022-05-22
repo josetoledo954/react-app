@@ -30,8 +30,8 @@ const [stockNuevo, setStockNuevo] = useState(stock)
         <div> {modelo.title} </div>
         <img src= {modelo.pictureUrl} alt = "imegen" className={stockNuevo == 0 ? "opacity-50" : ""} ></img>
         {/* <div> {modelo.description} </div> */}
-        <div> Precio {modelo.price} </div>
-        <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800"><Link to={`/item/${modelo.id}`}>ver detalles</Link></button>
+        <div className="text-xl"> Precio {modelo.price} </div>
+        <button className="text-xl rounded-md text-center w-full text-white bg-blue-500 p-5 hover:bg-blue-800"><Link to={`/item/${modelo.id}`}>ver detalles</Link></button>
      {
        stockNuevo == 0 ? <div className="bg-red-500 mt-10">sin stock</div> : <div className="bg-lime-500 mt-10">en stock</div>
 

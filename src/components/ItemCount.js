@@ -91,19 +91,19 @@ const ItemCount = ({ stock, initial, onAdd, categoryId, id }) => {
     
   return (
       stockNuevo == 0 ? <div className="border-solid border-2 border-current w-64 h-52 flex flex-col justify-evenly p-2 bg-slate-100"><div className="bg-red-500">sin stock</div>  
-      <Link to={`/category/${categoryId}`} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">ver otros productos similares</Link> </div> :
+      <Link to={`/category/${categoryId}`} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800	">ver otros productos similares</Link> </div> :
     <>
         <div className="border-solid border-2 border-current w-64 h-56 flex flex-col justify-evenly p-2 bg-slate-100">
             <div>Contador</div>
             <div>disponibles {stockNuevo} </div>
-            <div className="text-2xl ring-2 text-center  h-10 bg-white rounded-md p-1">
-                <button onClick={resHandler} class = "hover:font-bold text-2xl text-blue-500" > - </button>
-                <strong class="text-2xl m-10"> {count} </strong>
-                <button onClick={addHandler} class = "hover:font-bold text-2xl text-blue-500" > + </button>
+            <div className="flex justify-center text-2xl ring-2 text-center  h-10 bg-white rounded-md p-1">
+                <button onClick={resHandler} className = "hover:font-bold text-2xl text-blue-500" > - </button>
+                <strong className = "text-2xl w-32"> {count} </strong>
+                <button onClick={addHandler} className = "hover:font-bold text-2xl text-blue-500" > + </button>
             </div>
             {/* <button onClick={agregar} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Agregar al carrito</button> */}
             
-            <button onClick={() => handleClick(id, count)} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Agregar al carrito</button>
+            <button onClick={() => handleClick(id, count)} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800	">Agregar al carrito</button>
         </div>
     </>
   )
