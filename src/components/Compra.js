@@ -30,18 +30,19 @@ const handleChange = (e) => {
 // }
 
 const saveFavs  = async(e) => { 
+  
   e.preventDefault()
   // const user = {
-  //   name: 'nombre 1',
-  //   phone: '12345',
-  //   email:'asdfg@asdfg.com'
-  // }
-
-  const favsToSave = {
-    user: form,
-    favs: cart,
-    total: cart.length
-  }
+    //   name: 'nombre 1',
+    //   phone: '12345',
+    //   email:'asdfg@asdfg.com'
+    // }
+    
+    const favsToSave = {
+      user: form,
+      favs: cart,
+      total: cart.length
+    }
 
   // const favsWithoutImg = favorites.map(({id, title}) => ({id, title}))
 
@@ -106,7 +107,7 @@ const saveFavs  = async(e) => {
       </div> :
     <>
     
-    <div className='flex item-center justify-center'>
+    <div className='flex items-center justify-center'>
 
         <form className='w-full max-w-xs mt-20'>
             <label className='block text-gray-700 text-sm font-bold mb-2' for='nombre'>
@@ -117,6 +118,7 @@ const saveFavs  = async(e) => {
             type='text' 
             name='nombre' 
             value={form.nombre}
+            required
             onChange={handleChange}
             />
             </label>
@@ -127,6 +129,7 @@ const saveFavs  = async(e) => {
             id='mail'
             type='mail' 
             name='mail' 
+            required
             value={form.mail}
             onChange={handleChange}
             />
@@ -138,13 +141,20 @@ const saveFavs  = async(e) => {
             id='telefono'
             type='text' 
             name='telefono' 
+            required
             value={form.telefono}
             onChange={handleChange}
             />
             </label>
-            
-            
-            <button onClick={saveFavs}  className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 mt-10	w-full">comprar</button>
+            <div className='block text-gray-700 text-sm font-bold mb-2'>detalle de la compra</div>
+            <div className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'> {cart.map(p =><div> {p.quantity} {p.title} {p.price*p.quantity} </div>)} </div>
+            <div className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'> total a pagar {cart.map(p => p.price * p.quantity).reduce((prev, curr) => prev + curr, 0)} </div>
+            <button type="submit" onClick={form.nombre && form.telefono && form.mail  ? saveFavs : "" }  className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 mt-10	w-full">comprar</button>
+            <button className="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800 mt-10	w-full mt-5">
+              <Link to={`/carrito `}>
+              ver carrito
+              </Link>
+              </button>
         </form>
             </div>
     </>
