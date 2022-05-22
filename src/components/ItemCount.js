@@ -62,10 +62,6 @@ const ItemCount = ({ stock, initial, onAdd, categoryId, id }) => {
         }
     }
 
-    // const agregar = () => {
-    //     onAdd(count)
-    // }    
-
     const handleClick = (id, cantidad) => {
         const findProduct = products.find((producto) => producto.id == id)
 
@@ -81,13 +77,6 @@ const ItemCount = ({ stock, initial, onAdd, categoryId, id }) => {
         
     }
 
-    // const onAdd = (count, id) => {
-    //     setFinalizar(true)
-    //     console.log(`agregaste ${count} productos al carrito `);
-    //     stock=(stockN)
-    //     console.log("sotock nuevo", stockN);
-    //     setStockNuevo(stockN)   
-    // }
     
   return (
       stockNuevo == 0 ? <div className="border-solid border-2 border-current w-64 h-52 flex flex-col justify-evenly p-2 bg-slate-100"><div className="bg-red-500">sin stock</div>  
@@ -101,7 +90,6 @@ const ItemCount = ({ stock, initial, onAdd, categoryId, id }) => {
                 <strong className = "text-2xl w-32"> {count} </strong>
                 <button onClick={addHandler} className = "hover:font-bold text-2xl text-blue-500" > + </button>
             </div>
-            {/* <button onClick={agregar} class="text-2xl rounded-md text-center text-white bg-blue-500 p-1 hover:bg-blue-800	">Agregar al carrito</button> */}
             
             <button onClick={() => handleClick(id, count)} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800	">Agregar al carrito</button>
         </div>

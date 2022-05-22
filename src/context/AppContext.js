@@ -1,6 +1,5 @@
 import { collection, getDocs, getFirestore } from "firebase/firestore"
 import { createContext, useContext, useEffect, useState } from "react"
-import { getItem } from "../data/productosData"
 
 const AppContext = createContext()
 

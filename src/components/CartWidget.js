@@ -1,7 +1,5 @@
-import { render } from '@testing-library/react'
 import React, { useEffect, useState } from 'react'
 import { useCartContext } from '../context/CartContext'
-import Contador from './clase/Contador'
 
 export const CartWidget = () => {
 
