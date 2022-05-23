@@ -90,7 +90,7 @@ const Cart = () => {
         <button className="text-l rounded-md text-center text-blue-500 " onClick={() => deleteItem(p.id)}>eliminar item</button>
         <div className='text-2xl w-56 text-right'>{p.price*p.quantity} </div>
       </li>)}
-        <div className='border-b-[2px] w-full h-32 text-3xl text-right '> total {precioProductos}</div> 
+        <div className='border-b-[2px] w-full h-32 text-3xl text-right flex flex-col justify-center'> total {precioProductos}</div> 
       <div className='flex items-center justify-between w-full'>
 
         <button onClick={borrarCarrrito} className="text-l rounded-md text-center text-blue-500 	m-10">borrar carrito</button>

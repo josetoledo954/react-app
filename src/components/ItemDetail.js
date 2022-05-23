@@ -18,7 +18,7 @@ const {title, pictureUrl, description, price, stock,categoryId, id} = producto
 const desc = description.split('. ')
   return (
     
-    <div class = "border-solid border-current border-2 items-start justify-evenly flex mx-56">
+    <div class = "border-solid border-current border-2 items-start justify-evenly flex mx-80 mt-10">
         <img src= {pictureUrl} alt = "imegen" ></img>
         <div className='flex flex-col mt-5	'> 
           <div className='text-2xl mb-5'>{title}</div>  
@@ -26,8 +26,8 @@ const desc = description.split('. ')
           <div > {desc.map(p => <li> {p} </li> )}</div>
         </div>
         {finalizar ? ( <div className='flex flex-col w-100 mt-56'>
-          <Link to={`/carrito`} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800 m-5">Finalizar Compra</Link>
-           <Link to={`/`} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800 m-5	">Seguir Comprando</Link>
+          <Link to={`/carrito`} className="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800 m-5">Finalizar Compra</Link>
+           <Link to={`/`} className="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800 m-5	">Seguir Comprando</Link>
            </div>)
          : (
            <div className='mt-56'>

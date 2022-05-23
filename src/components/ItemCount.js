@@ -86,9 +86,9 @@ const ItemCount = ({ stock, initial, onAdd, categoryId, id }) => {
             <div>Contador</div>
             <div>disponibles {stockNuevo} </div>
             <div className="flex justify-center text-2xl ring-2 text-center  h-10 bg-white rounded-md p-1">
-                <button onClick={resHandler} className = "hover:font-bold text-2xl text-blue-500" > - </button>
+                <button onClick={resHandler} className = "hover:font-bold text-2xl text-blue-500 w-20" > - </button>
                 <strong className = "text-2xl w-32"> {count} </strong>
-                <button onClick={addHandler} className = "hover:font-bold text-2xl text-blue-500" > + </button>
+                <button onClick={addHandler} className = "hover:font-bold text-2xl text-blue-500 w-20" > + </button>
             </div>
             
             <button onClick={() => handleClick(id, count)} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800	">Agregar al carrito</button>

@@ -59,7 +59,7 @@ const saveFavs  = async(e) => {
   setId(response.id)
     if(response){
 
-      cart.forEach(e => {
+      cart.map(e => {
         const updateFavs = async () => {
           const stockNuevo = e.stock - e.quantity    
           const idDoc = e.id

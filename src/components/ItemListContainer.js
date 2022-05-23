@@ -19,11 +19,12 @@ const ItemListContainer = (props) => {
   
   
 
-  return (load ? <div className="flex items-center h-full justify-center"><Spinner/></div>   :
-    (<div class="border-solid border-current border-2 ">
+  return (load ? <div className="flex items-center justify-center"><Spinner/></div>   :
+    (<div class="mx-80 mt-10">
       <div>{props.greeting}</div> 
     
       <ItemCollection/>
+      
     </div>)
   )
 }

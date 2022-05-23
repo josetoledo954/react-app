@@ -7,7 +7,7 @@ const NavBar = () => {
 
 
   return (
-    <div class = "flex items-center justify-evenly list-none	bg-slate-500	h-20">
+    <div class = "flex items-center justify-between list-none	bg-slate-500	h-20 px-80">
       <h2 class="text-5xl">Tienda</h2>
       <li><Link to={`/`}>inicio</Link></li>
       <li><Link to={`/category/celulares`}>celulares</Link></li>
