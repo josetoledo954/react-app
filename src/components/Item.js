@@ -26,7 +26,7 @@ const [stockNuevo, setStockNuevo] = useState(stock)
 }, [])
 
   return (
-    <div class = "flex flex-col border-[2px] w-80 p-2 m-2 mt-20">
+    <div className = "flex flex-col border-[2px] w-80 p-2 m-2 mt-20">
         <div className="flex border-b-[2px] items-center justify-center h-80">
           <img src= {modelo.pictureUrl} alt = "imegen" className={stockNuevo == 0 ? "opacity-50 h-80" : "h-80"} ></img>
         </div>

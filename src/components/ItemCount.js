@@ -80,7 +80,7 @@ const ItemCount = ({ stock, initial, onAdd, categoryId, id }) => {
     
   return (
       stockNuevo == 0 ? <div className="border-solid border-2 border-current w-64 h-52 flex flex-col justify-evenly p-2 bg-slate-100"><div className="bg-red-500">sin stock</div>  
-      <Link to={`/category/${categoryId}`} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800	">ver otros productos similares</Link> </div> :
+      <Link to={`/category/${categoryId}`} className="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800	">ver otros productos similares</Link> </div> :
     <>
         <div className="border-solid border-2 border-current w-64 h-56 flex flex-col justify-evenly p-2 bg-slate-100">
             <div>Contador</div>
@@ -91,7 +91,7 @@ const ItemCount = ({ stock, initial, onAdd, categoryId, id }) => {
                 <button onClick={addHandler} className = "hover:font-bold text-2xl text-blue-500 w-20" > + </button>
             </div>
             
-            <button onClick={() => handleClick(id, count)} class="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800	">Agregar al carrito</button>
+            <button onClick={() => handleClick(id, count)} className="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800	">Agregar al carrito</button>
         </div>
     </>
   )

@@ -74,7 +74,7 @@ const Cart = () => {
         <Link to={`/`} className="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800	m-10">Ir a comprar</Link></div> ) : 
         (
     <div className='flex flex-col items-center justify-center border-solid border-current- border-2 px-20 m-80 mt-10 bg-white'>{cart.map(p => 
-      <li className='flex items-center justify-between border-b-[2px] w-full '>
+      <li key={p.id} className='flex items-center justify-between border-b-[2px] w-full '>
         <img src={p.pictureUrl} className="w-10 inline m-5" />
         <div className='text-xl w-56'> {p.title} </div>
       

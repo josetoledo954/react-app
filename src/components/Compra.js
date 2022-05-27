@@ -110,7 +110,7 @@ const saveFavs  = async(e) => {
     <div className='flex items-center justify-center'>
 
         <form className='w-full max-w-xs mt-20'>
-            <label className='block text-gray-700 text-sm font-bold mb-2' for='nombre'>
+            <label className='block text-gray-700 text-sm font-bold mb-2'  htmlFor='nombre'>
                 nombre:
             <input 
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
@@ -122,7 +122,7 @@ const saveFavs  = async(e) => {
             onChange={handleChange}
             />
             </label>
-            <label className='block text-gray-700 text-sm font-bold mb-2' for='nombre'>
+            <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='nombre'>
                 mail:
             <input 
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
@@ -134,7 +134,7 @@ const saveFavs  = async(e) => {
             onChange={handleChange}
             />
             </label>
-            <label className='block text-gray-700 text-sm font-bold mb-2' for='nombre'>
+            <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='nombre'>
                 telefono:
             <input 
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
@@ -147,7 +147,7 @@ const saveFavs  = async(e) => {
             />
             </label>
             <div className='block text-gray-700 text-sm font-bold mb-2'>detalle de la compra</div>
-            <div className='shadow appearance-none border rounded w-full px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'> {cart.map(p =><div className='border-b-[2px] m-5 text-right'> 
+            <div className='shadow appearance-none border rounded w-full px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'> {cart.map(p =><div key={p.id} className='border-b-[2px] m-5 text-right'> 
               {p.quantity} {p.title} {p.price*p.quantity} </div>)} </div>
             <div className='shadow appearance-none border rounded w-full  px-3 text-right mt-2 p-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'> total a pagar {cart.map(p => p.price * p.quantity).reduce((prev, curr) => prev + curr, 0)} </div>
             <button type="submit" onClick={form.nombre && form.telefono && form.mail  ? saveFavs : "" }  className="text-xl rounded-md text-center text-white bg-blue-500 p-5 hover:bg-blue-800 mt-2	w-full">comprar</button>

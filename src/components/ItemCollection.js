@@ -26,7 +26,7 @@ const ItemCollection = () => {
   }
 
   return (
-    <div class="border-[2px] flex justify-evenly" >
+    <div className = "border-[2px] flex justify-evenly" >
       {products.map ( (i) => <Item key = {i.id} modelo={i}/> )}
   </div>
   )

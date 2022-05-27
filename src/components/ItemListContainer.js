@@ -20,7 +20,7 @@ const ItemListContainer = (props) => {
   
 
   return (load ? <div className="flex items-center justify-center"><Spinner/></div>   :
-    (<div class="mx-80 mt-10">
+    (<div className="mx-80 mt-10">
       <div>{props.greeting}</div> 
     
       <ItemCollection/>
