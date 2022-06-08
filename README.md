@@ -71,8 +71,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # Proyecto de React 
+Tienda de productos 
 
-Para inciiar este **proyecto**
+Para inciar este **proyecto**
 silplemente ejecutar 
 `npm start`
 
