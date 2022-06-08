@@ -77,4 +77,29 @@ silplemente ejecutar
 `npm start`
 
 Puedes verlo funcionando en 
-el siguiente enlace [enlace]
+el siguiente enlace [https://react-app-tienda.netlify.app/]
+
+# Inicio
+
+En el inicio se muestran los productos traidos desde firebase en cada producto se muestra si esta en stock
+si el producto no se encuentra en stock el color de la imagen cambia 
+
+# Categorias 
+
+En las categorias sepuede filtrar por tipo de producto
+
+# Detalle del producto
+
+En detalle del producto se puede ver el stock del producto este stock tambien tiene en cuenta los productos
+agregados al carrito por lo que si se en el carrito
+
+# Carrito
+
+En el carrito se pueden ver todos los productos agregados se pueden agregar cantidad  y eliminar productos
+
+# Formulario
+
+En el formulario se toman los datos solicitados par hacer el peidido junto con los productos del carrito 
+si se completa mostrata una confirmacion de que se completo
+esto guarda el pedido en firebase y modifica el stock de los productos de esta forma al cargarse nuevamente
+se mostraran con el nuevo stock
